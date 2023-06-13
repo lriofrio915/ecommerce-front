@@ -69,13 +69,13 @@ export default function Header() {
     <StyledHeader>
       <Center>
         <Wrapper>
-          <Logo href={'/'}>Ecommerce</Logo>
+          <Logo href={'/'}>vaperApp</Logo>
           <StyledNav mobileNavActive={mobileNavActive}>
-            <NavLink href={'/'}>Home</NavLink>
-            <NavLink href={'/products'}>All products</NavLink>
-            <NavLink href={'/categories'}>Categories</NavLink>
-            <NavLink href={'/account'}>Account</NavLink>
-            <NavLink href={'/cart'}>Cart ({cartProducts.length})</NavLink>
+            <NavLink href={'/'}>Inicio</NavLink>
+            <NavLink href={'/products'}>Productos</NavLink>
+            <NavLink href={'/categories'}>Categorías</NavLink>
+            <NavLink href={'/account'}>Mi cuenta</NavLink>
+            <NavLink href={'/cart'}>Carrito ({cartProducts.length})</NavLink>
           </StyledNav>
           <NavButton onClick={() => setMobileNavActive(prev => !prev)}>
             <BarsIcon />

@@ -70,16 +70,16 @@ export default function Featured({product}) {
               <Title>{product.title}</Title>
               <Desc>{product.description}</Desc>
               <ButtonsWrapper>
-                <ButtonLink href={'/product/'+product._id} outline={1} white={1}>Read more</ButtonLink>
+                <ButtonLink href={'/product/'+product._id} outline={1} white={1}>Leer más</ButtonLink>
                 <Button white onClick={addFeaturedToCart}>
                   <CartIcon />
-                  Add to cart
+                  Agregar al carrito
                 </Button>
               </ButtonsWrapper>
             </div>
           </Column>
           <Column>
-            <img src="https://vaper-next-ecommerce.s3.amazonaws.com/1685377167880.avif" alt=""/>
+            <img src="https://vaper-next-ecommerce.s3.amazonaws.com/1686608203177.png" alt="e-liquid vaper big chief"/>
           </Column>
         </ColumnsWrapper>
       </Center>
