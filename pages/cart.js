@@ -1,12 +1,12 @@
-import Header from "../components/Header";
+import Header from "@/components/Header";
 import styled from "styled-components";
-import Center from "../components/Center";
-import Button from "../components/Button";
+import Center from "@/components/Center";
+import Button from "@/components/Button";
 import {useContext, useEffect, useState} from "react";
-import {CartContext} from "../components/CartContext";
+import {CartContext} from "@/components/CartContext";
 import axios from "axios";
-import Table from "../components/Table";
-import Input from "../components/Input";
+import Table from "@/components/Table";
+import Input from "@/components/Input";
 
 const ColumnsWrapper = styled.div`
   display: grid;
@@ -76,7 +76,6 @@ export default function CartPage() {
   const [streetAddress,setStreetAddress] = useState('');
   const [country,setCountry] = useState('');
   const [isSuccess,setIsSuccess] = useState(false);
-
   useEffect(() => {
     if (cartProducts.length > 0) {
       axios.post('/api/cart', {ids:cartProducts})
@@ -87,7 +86,6 @@ export default function CartPage() {
       setProducts([]);
     }
   }, [cartProducts]);
-
   useEffect(() => {
     if (typeof window === 'undefined') {
       return;
@@ -97,7 +95,6 @@ export default function CartPage() {
       clearCart();
     }
   }, []);
-
   function moreOfThisProduct(id) {
     addProduct(id);
   }
@@ -113,7 +110,6 @@ export default function CartPage() {
       window.location = response.data.url;
     }
   }
-
   let total = 0;
   for (const productId of cartProducts) {
     const price = products.find(p => p._id === productId)?.price || 0;
@@ -135,24 +131,23 @@ export default function CartPage() {
       </>
     );
   }
-
-  return(
+  return (
     <>
-      <Header/>
+      <Header />
       <Center>
         <ColumnsWrapper>
           <Box>
-            <h2>Carrito de compras</h2>
+            <h2>Cart</h2>
             {!cartProducts?.length && (
-              <div>Tu carrito está vacío</div>
+              <div>Your cart is empty</div>
             )}
             {products?.length > 0 && (
               <Table>
                 <thead>
                   <tr>
-                    <th>Producto</th>
-                    <th>Cantidad</th>
-                    <th>Precio</th>
+                    <th>Product</th>
+                    <th>Quantity</th>
+                    <th>Price</th>
                   </tr>
                 </thead>
                 <tbody>
@@ -189,53 +184,47 @@ export default function CartPage() {
           </Box>
           {!!cartProducts?.length && (
             <Box>
-              <h2>Información del pedido</h2>
+              <h2>Order information</h2>
               <Input type="text"
-                placeholder="Name"
-                value={name}
-                name="name"
-                onChange={ev => setName(ev.target.value)} 
-                />
+                     placeholder="Name"
+                     value={name}
+                     name="name"
+                     onChange={ev => setName(ev.target.value)} />
               <Input type="text"
-                placeholder="Email"
-                value={email}
-                name="email"
-                onChange={ev => setEmail(ev.target.value)}
-                />
+                     placeholder="Email"
+                     value={email}
+                     name="email"
+                     onChange={ev => setEmail(ev.target.value)}/>
               <CityHolder>
                 <Input type="text"
-                  placeholder="City"
-                  value={city}
-                  name="city"
-                  onChange={ev => setCity(ev.target.value)}
-                  />
+                       placeholder="City"
+                       value={city}
+                       name="city"
+                       onChange={ev => setCity(ev.target.value)}/>
                 <Input type="text"
-                  placeholder="Postal Code"
-                  value={postalCode}
-                  name="postalCode"
-                  onChange={ev => setPostalCode(ev.target.value)}
-                  />
+                       placeholder="Postal Code"
+                       value={postalCode}
+                       name="postalCode"
+                       onChange={ev => setPostalCode(ev.target.value)}/>
               </CityHolder>
               <Input type="text"
-                placeholder="Street Address"
-                value={streetAddress}
-                name="streetAddress"
-                onChange={ev => setStreetAddress(ev.target.value)}
-                />
+                     placeholder="Street Address"
+                     value={streetAddress}
+                     name="streetAddress"
+                     onChange={ev => setStreetAddress(ev.target.value)}/>
               <Input type="text"
-                placeholder="Country"
-                value={country}
-                name="country"
-                onChange={ev => setCountry(ev.target.value)}
-                />
+                     placeholder="Country"
+                     value={country}
+                     name="country"
+                     onChange={ev => setCountry(ev.target.value)}/>
               <Button black block
-                onClick={goToPayment}>
-                Continuar con el pago
+                      onClick={goToPayment}>
+                Continue to payment
               </Button>
             </Box>
           )}
         </ColumnsWrapper>
       </Center>
     </>
-  )
+  );
 }
