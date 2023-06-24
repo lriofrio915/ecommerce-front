@@ -57,6 +57,7 @@ export default function CategoryPage({
     });
     setFiltersChanged(true);
   }
+
   useEffect(() => {
     if (!filtersChanged) {
       return;
@@ -77,6 +78,7 @@ export default function CategoryPage({
       setLoadingProducts(false);
     })
   }, [filtersValues, sort, filtersChanged]);
+
   return (
     <>
       <Header />
@@ -98,17 +100,17 @@ export default function CategoryPage({
               </Filter>
             ))}
             <Filter>
-              <span>Sort:</span>
+              <span>Filtrar:</span>
               <select
                 value={sort}
                 onChange={ev => {
                   setSort(ev.target.value);
                   setFiltersChanged(true);
                 }}>
-                <option value="price-asc">price, lowest first</option>
-                <option value="price-desc">price, highest first</option>
-                <option value="_id-desc">newest first</option>
-                <option value="_id-asc">oldest first</option>
+                <option value="price-asc">precio, más bajo primero</option>
+                <option value="price-desc">precio, más alto primero</option>
+                <option value="_id-desc">más nuevo primero</option>
+                <option value="_id-asc">más viejo primero</option>
               </select>
             </Filter>
           </FiltersWrapper>
@@ -122,7 +124,7 @@ export default function CategoryPage({
               <ProductsGrid products={products} />
             )}
             {products.length === 0 && (
-              <div>Sorry, no products found</div>
+              <div>Lo sentimos, no se encontraron productos</div>
             )}
           </div>
         )}
