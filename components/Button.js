@@ -1,5 +1,5 @@
 import styled, {css} from "styled-components";
-import {primary} from "../lib/colors";
+import {primary} from "@/lib/colors";
 
 export const ButtonStyle = css`
   border:0;
@@ -11,6 +11,7 @@ export const ButtonStyle = css`
   text-decoration: none;
   font-family: 'Poppins', sans-serif;
   font-weight:500;
+  font-size: 15px;
   svg{
     height: 16px;
     margin-right: 5px;
