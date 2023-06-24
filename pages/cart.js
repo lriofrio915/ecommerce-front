@@ -139,6 +139,8 @@ export default function CartPage() {
         setEmail(response.data.email);
         setCity(response.data.city);
         setPostalCode(response.data.postalCode);
+        setStreetAddress(response.data.streetAddress);
+        setCountry(response.data.country);
       }
     })
     .catch(error => {
@@ -209,7 +211,7 @@ export default function CartPage() {
                       <tr>
                         <ProductInfoCell>
                           <ProductImageBox>
-                            <img src={product.images[0]} alt=""/>
+                            <img src={product.images[0]} alt="vaporizadores y concentrados de thc y cbd"/>
                           </ProductImageBox>
                           {product.title}
                         </ProductInfoCell>
@@ -228,18 +230,18 @@ export default function CartPage() {
                       </tr>
                     ))}
                     <tr className="subtotal">
-                    <td colSpan={2}>Products</td>
-                    <td>${productsTotal}</td>
-                  </tr>
-                  <tr className="subtotal">
-                    <td colSpan={2}>Shipping</td>
-                    <td>${shippingFee}</td>
-                  </tr>
-                  <tr className="subtotal total">
-                    <td colSpan={2}>Total</td>
-                    <td>${productsTotal + parseInt(shippingFee || 0)}</td>
-                  </tr>
-                  </tbody>
+                      <td colSpan={2}>Products</td>
+                      <td>${productsTotal}</td>
+                    </tr>
+                    <tr className="subtotal">
+                      <td colSpan={2}>Shipping</td>
+                      <td>${shippingFee}</td>
+                    </tr>
+                    <tr className="subtotal total">
+                      <td colSpan={2}>Total</td>
+                      <td>${productsTotal + parseInt(shippingFee || 0)}</td>
+                    </tr>
+                    </tbody>
                 </Table>
               )}
             </Box>
