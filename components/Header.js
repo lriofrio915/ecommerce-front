@@ -105,10 +105,12 @@ export default function Header() {
             <NavLink href={'/cart'}>Carrito ({cartProducts.length})</NavLink>
           </StyledNav>
           <SideIcons>
-          <Link href={'/search'}><SearchIcon /></Link>
-            <NavButton onClick={() => setMobileNavActive(prev => !prev)}>
-              <BarsIcon />
-            </NavButton>
+          <Link href={'/search'}>
+            <SearchIcon />
+          </Link>
+          <NavButton onClick={() => setMobileNavActive(prev => !prev)}>
+            <BarsIcon />
+          </NavButton>
           </SideIcons>
         </Wrapper>
       </Center>
