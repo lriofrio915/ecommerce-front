@@ -70,44 +70,46 @@ export default function ProductReviews({product}) {
   useEffect(() => {
     loadReviews();
   }, []);
+
   function loadReviews() {
     setReviewsLoading(true);
     axios.get('/api/reviews?product='+product._id).then(res => {
       setReviews(res.data);
       setReviewsLoading(false);
     });
+
   }
   return (
     <div>
-      <Title>Reviews</Title>
+      <Title>Reseñas</Title>
       <ColsWrapper>
         <div>
           <WhiteBox>
-            <Subtitle>Add a review</Subtitle>
+            <Subtitle>Agrega un comentario del producto</Subtitle>
             <div>
               <StarsRating onChange={setStars} />
             </div>
             <Input
               value={title}
               onChange={ev => setTitle(ev.target.value)}
-              placeholder="Title" />
+              placeholder="Nombre del producto" />
             <Textarea
               value={description}
               onChange={ev => setDescription(ev.target.value)}
-              placeholder="Was it good? Pros? Cons?" />
+              placeholder="¿Estuvo bueno? ¿Te repetirías? ¿Lo recomendarías?" />
             <div>
-              <Button primary onClick={submitReview}>Submit your review</Button>
+              <Button primary onClick={submitReview}>Enviar mi opinión</Button>
             </div>
           </WhiteBox>
         </div>
         <div>
           <WhiteBox>
-            <Subtitle>Todas las reviews</Subtitle>
+            <Subtitle>Todas las reseñas:</Subtitle>
             {reviewsLoading && (
               <Spinner fullWidth={true} />
             )}
             {reviews.length === 0 && (
-              <p>No hay reviews</p>
+              <p>No hay comentarios todavía</p>
             )}
             {reviews.length > 0 && reviews.map(review => (
               <ReviewWrapper>
