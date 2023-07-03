@@ -160,9 +160,9 @@ export default function AccountPage() {
             <RevealWrapper delay={100}>
               <WhiteBox>
                 <h2>{session ? 'Detalles de la cuenta' : 'Acceder'}</h2>
-                {/* {!addressLoaded && (
+                {!addressLoaded && (
                   <Spinner fullWidth={true} />
-                )} */}
+                )}
                 {addressLoaded && session && (
                   <>
                     <Input type="text"
