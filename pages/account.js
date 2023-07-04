@@ -1,5 +1,5 @@
 import Header from "@/components/Header";
-import Title from "@/components/Title";
+// import Title from "@/components/Title";
 import Center from "@/components/Center";
 import {signIn, signOut, useSession} from "next-auth/react";
 import Button from "@/components/Button";
@@ -47,7 +47,7 @@ export default function AccountPage() {
   const [wishlistLoaded,setWishlistLoaded] = useState(true);
   const [orderLoaded,setOrderLoaded] = useState(true);
   const [wishedProducts,setWishedProducts] = useState([]);
-  const [activeTab, setActiveTab] = useState('Orders');
+  const [activeTab, setActiveTab] = useState('Pedidos');
   const [orders, setOrders] = useState([]);
 
   async function logout() {
