@@ -13,7 +13,7 @@ export default function HomePage({featuredProduct,newProducts, wishedNewProducts
     <div>
       <Header />
       <Featured product={featuredProduct} />
-      <NewProducts products={newProducts} WishedProduct={wishedNewProducts}/>
+      <NewProducts products={newProducts} wishedProducts={wishedNewProducts}/>
     </div>
   );
 }
@@ -21,7 +21,7 @@ export default function HomePage({featuredProduct,newProducts, wishedNewProducts
 export async function getServerSideProps(ctx) {
   await mongooseConnect();
   const featuredProductSetting = await Setting.findOne({name:'featuredProductId'});
-  const featuredProductId = '6487996a13c131afac8229b3';
+  const featuredProductId = featuredProductSetting.value;
   const featuredProduct = await Product.findById(featuredProductId);
   const newProducts = await Product.find({}, null, {sort: {'_id':-1}, limit:10});
   const session = await getServerSession(ctx.req, ctx.res, authOptions);
